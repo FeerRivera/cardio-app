@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<table border="1" style="border-collapse:collapse">
+<tr>
+<th>Valores</th>
+    <th>
+    <select id="Enfermedad">
+        <option>Tetralogía de Fallot
+            <option>Anomalía de Ebsteln
+            <option>PCA
+            <option>Comunicación interatrial
+            <option>Comunicación interventricular
+            <option>Falla sistólica
+            <option>Falla diastólica
+        </select>
+        <button onclick="a()">Ejecutar</button>
+    </th>
+</tr>
+<tr>
+<td>Edad (años)</td>
+    <td><input style="border:none;" id="Edad"></td>
+</tr>
+<tr>
+<td>Peso (kg) basal</td>
+    <td><input style="border:none;" id="PesoB"></td>
+</tr>
+<tr>
+<td>Peso (kg) 6 meses</td>
+    <td><input style="border:none;" id="Peso6"></td>
+</tr>
+<tr>
+<td>Estatura (cm)</td>
+    <td><input style="border:none;" id="Estatura"></td>
+</tr>
+<tr>
+<td>IMC (kg/m²) basal</td>
+    <td><input style="border:none;" id="IMCB"></td>
+</tr>
+<tr>
+<td>IMC (kg/m²) 6 meses</td>
+    <td><input style="border:none;" id="IMC6"></td>
+</tr>
+<tr>
+<td>ΔIMC</td>
+    <td><input style="border:none;" id="IMC"></td>
+</tr>
+<tr>
+<td>ΔFAC</td>
+    <td><input style="border:none;" id="FAC"></td>
+</tr>
+<tr>
+<td>ΔOnda S</td>
+    <td><input style="border:none;" id="OndaS"></td>
+</tr>
+<tr>
+<td>ΔTei</td>
+    <td><input style="border:none;" id="Tei"></td>
+</tr>
+<tr>
+<td>ΔE/A</td>
+    <td><input style="border:none;" id="EA"></td>
+</tr>
+<tr>
+<td>ΔTRIV</td>
+    <td><input style="border:none;" id="TRIV"></td>
+</tr>
+<tr>
+<td>ΔTAPSE</td>
+    <td><input style="border:none;" id="TAPSE"></td>
+</tr>
+<tr>
+<td>Terapía (días)</td>
+    <td><input style="border:none;" id="Terapia"></td>
+</tr>
+<tr>
+<td>ΔSaturación</td>
+    <td><input style="border:none;" id="Saturación"></td>
+</tr>
+<tr>
+<td>ΔICT</td>
+    <td><input style="border:none;" id="ICT"></td>
+</tr>
+<tr>
+<td>BNP basal (pg/dl.)</td>
+    <td><input style="border:none;" id="BNPB"></td>
+</tr>
+<tr>
+<td>BNP 6 meses (pg/dl.)</td>
+    <td><input style="border:none;" id="BNP6"></td>
+</tr>
+<tr>
+<td>PSVD 6 (Δ) (</td>
+    <td><input style="border:none;" id="PSVD6"></td>
+</tr>
+<tr>
+<td>Bloqueo AV (sí)</td>
+    <td><input style="border:none;" id="BloqueoAV"></td>
+</tr>
+<tr>
+<td>Fibrilación auricular (sí)</td>
+    <td><input style="border:none;" id="FibrilaciónA"></td>
+</tr>
+<tr>
+<td>Defecto residual (sí)</td>
+    <td><input style="border:none;" id="DefectoR"></td>
+</tr>
+<tr>
+<td>Tratamiento quirúrgico</td>
+    <td><input style="border:none;" id="TratanientoQ"></td>
+</tr>
+<tr>
+<td>Total</td>
+    <td id="total"></td>
+</tr>
+</table>
+</body>
+
+<script>
+function a() {
+var Enfermedad = document.getElementById("Enfermedad").value;
+switch (Enfermedad) {
+    case "Tetralogía de Fallot":
+        var constEdad = -1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            document.getElementById("total").innerHTML = constEdad;
+           
+            break;
+        case "Anomalía de Ebsteln":
+        var constEdad = 1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            break;
+        case "PCA":
+        var constEdad = 1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            break;
+        case "Comunicación interatrial":
+        var constEdad = 1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            break;
+        case "Comunicación interventricular":
+        var constEdad = 1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            break;
+        case "Falla sistólica":
+        var constEdad = 1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            break;
+        case "Falla diastólica":
+        var constEdad = 1;
+            var constPesoB = 1;
+            var constPeso6 = 1;
+            var constEstatura = 1;
+            var constIMCB = 1;
+var constIMC6 = 1;
+            var constIMC = 1;
+            var constFAC = 1;
+            var constOndaS = 1;
+            var constTei = 1;
+            var constEA = 1;
+var constTRIV = 1;
+            var constTAPSE = 1;
+            var constTerapia = 1;
+            var constSaturación = 1;
+            var constICT = 1;
+            var constBNPB = 1;
+            var constBNP6 = 1;
+            var constPSVD6 = 1;
+            var constBloqueoAV = 1;
+            var constFibrilaciónA = 1;
+            var constDefectoR = 1;
+            var constTratamientoQ = 1;
+            break;
+            }
+           
+            }
+</script>
+
+</html>
