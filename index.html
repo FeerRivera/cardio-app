@@ -108,7 +108,7 @@
 </tr>
 <tr>
 <td>Tratamiento quirúrgico</td>
-    <td><input style="border:none;" id="TratanientoQ"></td>
+    <td><input style="border:none;" id="TratamientoQ"></td>
 </tr>
 <tr>
 <td>Total</td>
@@ -120,186 +120,142 @@
 <script>
 function a() {
 var Enfermedad = document.getElementById("Enfermedad").value;
+var Edad = document.getElementById("Edad").value;
+var IMCB = document.getElementById("IMCB").value;
+var TRIV = document.getElementById("TRIV").value;
+var TAPSE = document.getElementById("TAPSE").value;
+var Terapia = document.getElementById("Terapia").value;
+var Saturación = document.getElementById("Saturación").value;
+var ICT = document.getElementById("ICT").value;
+var BNPB = document.getElementById("BNPB").value;
+var PSVD6 = document.getElementById("PSVD6").value;
+var BloqueoAV = document.getElementById("BloqueoAV").value;
+var FibrilaciónA = document.getElementById("FibrilaciónA").value;
+var DefectoR = document.getElementById("DefectoR").value;
+var TratamientoQ = document.getElementById("TratamientoQ").value;
 switch (Enfermedad) {
-    case "Tetralogía de Fallot":
-        var constEdad = -1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
-            document.getElementById("total").innerHTML = constEdad;
-           
+    case "Tetralogía de Fallot":        	
+            var constIMCB = -0.358441;
+            var constTAPSE = -0.019376;
+            var constBloqueoAV = 3.907402;
+            var constDefectoR = 3.197423;
+            
+            var R_IMCB = IMCB*constIMCB;
+            var R_TAPSE = TAPSE*constTAPSE;
+            var R_BloqueoAV = BloqueoAV*constBloqueoAV;
+            var R_DefectoR = DefectoR*constDefectoR;
+            
+            var constE = 1.887642;
+            var R1 = R_IMCB + R_TAPSE + R_BloqueoAV + R_DefectoR;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            document.getElementById("total").innerHTML = R4;
+            
+            
             break;
         case "Anomalía de Ebsteln":
-        var constEdad = 1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
+        var constEdad = 0.363679;
+            var constTAPSE = -0.026167;
+            
+            var R_Edad = Edad*constEdad;
+            var R_TAPSE = TAPSE*constTAPSE;
+            
+            var constE = -2.826362;
+            var R1 = R_Edad + R_TAPSE;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            document.getElementById("total").innerHTML = R4;
             break;
         case "PCA":
-        var constEdad = 1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
+        var constEdad = 0.096637;
+            var constTRIV = -0.15096;
+            
+            var constBNPB = 0.031953;
+            
+            var constTratamientoQ = -1.772731;
+            var R_Edad = Edad*constEdad;
+            var R_TRIV = TRIV*constTRIV;
+            var R_BNPB = BNPB*constBNPB;
+            var R_TratamientoQ = TratamientoQ*constTratamientoQ;
+            var constE = -7.278928;
+            var R1 = R_Edad + R_TRIV + R_BNPB + R_TratamientoQ;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            
+            document.getElementById("total").innerHTML = R4;
             break;
+            
         case "Comunicación interatrial":
-        var constEdad = 1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
+        var constEdad = 0.118506;           
+            var constBNPB = 0.0295003;
+            var R_Edad = Edad*constEdad;
+            var R_BNPB = BNPB*constBNPB;
+            var constE = -8.707391;
+            var R1 = R_Edad + R_BNPB;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            
+            document.getElementById("total").innerHTML = R4;
+        
             break;
+        
+        
         case "Comunicación interventricular":
-        var constEdad = 1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
+        var constEdad = 0.1272303;           
+            var constBNPB = 0.024648;
+            var constFibrilaciónA = 3.268722;
+            var R_Edad = Edad*constEdad;
+            var R_BNPB = BNPB*constBNPB;
+            var R_FibrilaciónA = FibrilaciónA*constFibrilaciónA;
+            var constE = -7.788187;
+            var R1 = R_Edad + R_BNPB + R_FibrilaciónA;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            
+            document.getElementById("total").innerHTML = R4;
             break;
+            
+            
         case "Falla sistólica":
-        var constEdad = 1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
+        var constEdad = 0.3156504;
+            var constTerapia = 0.1150786;
+            var constBloqueoAV = 1.119678;
+            
+            var R_Edad = Edad*constEdad;
+            var R_Terapia = Terapia*constTerapia;
+            var R_BloqueoAV = BloqueoAV*constBloqueoAV ;
+            
+            var constE = -6.904246;
+            var R1 = R_Edad + R_Terapia + R_BloqueoAV;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            document.getElementById("total").innerHTML = R4;
             break;
         case "Falla diastólica":
-        var constEdad = 1;
-            var constPesoB = 1;
-            var constPeso6 = 1;
-            var constEstatura = 1;
-            var constIMCB = 1;
-var constIMC6 = 1;
-            var constIMC = 1;
-            var constFAC = 1;
-            var constOndaS = 1;
-            var constTei = 1;
-            var constEA = 1;
-var constTRIV = 1;
-            var constTAPSE = 1;
-            var constTerapia = 1;
-            var constSaturación = 1;
-            var constICT = 1;
-            var constBNPB = 1;
-            var constBNP6 = 1;
-            var constPSVD6 = 1;
-            var constBloqueoAV = 1;
-            var constFibrilaciónA = 1;
-            var constDefectoR = 1;
-            var constTratamientoQ = 1;
+        var constEdad = 0.0910424;
+            var constTRIV = -0.009312;
+            var constBNPB = 0.0252392;
+            
+            
+            var R_Edad = Edad*constEdad;
+            var R_TRIV = TRIV*constTRIV;
+            var R_BNPB = BNPB*constBNPB;
+            
+            var constE = -6.844795;
+            var R1 = R_Edad + R_TRIV + R_BNPB;
+            var R2 = constE + R1;
+            var R3 = (R2/(1+R2));
+            var R4 = (1-R3)*100;
+            document.getElementById("total").innerHTML = R4;
             break;
             }
-           
+            
             }
 </script>
 
