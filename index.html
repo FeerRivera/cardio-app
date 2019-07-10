@@ -91,20 +91,37 @@
     <td><input style="border:none;" id="BNP6"></td>
 </tr>
 <tr>
+<td>ΔBNP</td>
+    <td><input style="border:none;" id="BNP"></td>
+</tr>
+<tr>
 <td>PSVD 6 (Δ) (</td>
     <td><input style="border:none;" id="PSVD6"></td>
 </tr>
 <tr>
-<td>Bloqueo AV (sí)</td>
-    <td><input style="border:none;" id="BloqueoAV"></td>
+<td>Bloqueo AV</td>
+    <td><select id="BloqueoAV">
+    <option>0</option>
+    <option>1</option>
+    </select></td>
 </tr>
 <tr>
-<td>Fibrilación auricular (sí)</td>
-    <td><input style="border:none;" id="FibrilaciónA"></td>
+<td>Fibrilación auricular</td>
+    <td>
+    <select id="FibrilaciónA">
+    <option>0</option>
+    <option>1</option>
+    </select>
+    </td>
 </tr>
 <tr>
-<td>Defecto residual (sí)</td>
-    <td><input style="border:none;" id="DefectoR"></td>
+<td>Defecto residual</td>
+    <td>
+    <select id="DefectoR">
+    <option>0</option>
+    <option>1</option>
+    </select>
+    </td>
 </tr>
 <tr>
 <td>Tratamiento quirúrgico</td>
@@ -114,6 +131,7 @@
 <td>Total</td>
     <td id="total"></td>
 </tr>
+
 </table>
 </body>
 
@@ -128,6 +146,7 @@ var Terapia = document.getElementById("Terapia").value;
 var Saturación = document.getElementById("Saturación").value;
 var ICT = document.getElementById("ICT").value;
 var BNPB = document.getElementById("BNPB").value;
+var BNP = document.getElementById("BNP").value;
 var PSVD6 = document.getElementById("PSVD6").value;
 var BloqueoAV = document.getElementById("BloqueoAV").value;
 var FibrilaciónA = document.getElementById("FibrilaciónA").value;
@@ -148,8 +167,8 @@ switch (Enfermedad) {
             var constE = 1.887642;
             var R1 = R_IMCB + R_TAPSE + R_BloqueoAV + R_DefectoR;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+            var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             document.getElementById("total").innerHTML = R4;
             
             
@@ -164,13 +183,13 @@ switch (Enfermedad) {
             var constE = -2.826362;
             var R1 = R_Edad + R_TAPSE;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             document.getElementById("total").innerHTML = R4;
             break;
         case "PCA":
         var constEdad = 0.096637;
-            var constTRIV = -0.15096;
+            var constTRIV = -0.015096;
             
             var constBNPB = 0.031953;
             
@@ -182,8 +201,8 @@ switch (Enfermedad) {
             var constE = -7.278928;
             var R1 = R_Edad + R_TRIV + R_BNPB + R_TratamientoQ;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+            var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             
             document.getElementById("total").innerHTML = R4;
             break;
@@ -196,8 +215,8 @@ switch (Enfermedad) {
             var constE = -8.707391;
             var R1 = R_Edad + R_BNPB;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+            var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             
             document.getElementById("total").innerHTML = R4;
         
@@ -214,8 +233,8 @@ switch (Enfermedad) {
             var constE = -7.788187;
             var R1 = R_Edad + R_BNPB + R_FibrilaciónA;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+            var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             
             document.getElementById("total").innerHTML = R4;
             break;
@@ -233,10 +252,11 @@ switch (Enfermedad) {
             var constE = -6.904246;
             var R1 = R_Edad + R_Terapia + R_BloqueoAV;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+            var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             document.getElementById("total").innerHTML = R4;
             break;
+            
         case "Falla diastólica":
         var constEdad = 0.0910424;
             var constTRIV = -0.009312;
@@ -250,8 +270,8 @@ switch (Enfermedad) {
             var constE = -6.844795;
             var R1 = R_Edad + R_TRIV + R_BNPB;
             var R2 = constE + R1;
-            var R3 = (R2/(1+R2));
-            var R4 = (1-R3)*100;
+            var R3 = Math.pow(Math.E, R2);
+            var R4 = (R3/(1+R3))*100;
             document.getElementById("total").innerHTML = R4;
             break;
             }
